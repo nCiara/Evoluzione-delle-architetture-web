@@ -50,11 +50,11 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="home.html" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">Da SOA a MA</a></li>
+          <li><a href="#services">Perché</a></li>
+          <li><a href="#portfolio">Descrizione</a></li>
+          <li><a href="#team">Protocolli</a></li>
+          <li><a href="#contact">Caratteristiche principali</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -96,1111 +96,177 @@
 
     <!-- About Section -->
     <section id="about" class="about section">
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <title>SOA e MA</title>
+        </head>
+        <body>
+        <p>I software sono nati inizialmente per essere una singola entità, sviluppato con un solo linguaggio di programmazione e un solo eseguibile che gestisce tutto. Col tempo, questo sistema è diventato inefficiente perché
+            presenta diversi svantaggi, che vanno dalla scalabilità, ai problemi di resilienza passando per gli aggiornamenti. Per questi motivi sono nate due architetture più complesse e che permettono la divisione del lavoro.</p>
+        <h2>SOA service oriented architecture</h2>
+        <p>L’architettura SOA è un sistema informatico in cui ci sono servizi che comunicano tra loro attraverso un sistema centralizzato chiamato Enterprise Service Bus.
+            L’ESB è il cuore dell’architettura e si occupa di gestire tutte le comunicazioni tra i servizi, indirizzare le richieste al servizio corretto, trasformare i dati, controllare la sicurezza e registrare i log delle operazioni.
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+            Ogni servizio in una SOA è indipendente nelle sue funzioni ma collegato agli altri attraverso l’ESB. I servizi sono di solito completi e utilizzano database condivisi.
+            Se il sistema deve crescere, si può effettuare una scalabilità orizzontale aggiungendo server o istanze per migliorare le prestazioni e la capacità di resistere ai guasti. In questo modo eventuali problemi non bloccano l’intero sistema.
 
-        <div class="row gy-5 align-items-center">
+            SOA è nata nei primi anni Duemila per aiutare le aziende a collegare tra loro sistemi diversi. È molto utile nei contesti dove ci sono molte applicazioni da integrare, ma è anche più complessa da gestire rispetto ad altri modelli più recenti.
 
-          <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
-            <div class="content">
-              <h6 class="subtitle">Discover Our Story</h6>
-              <h2>Innovative Solutions for a Digital-First World</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
+            Un esempio tipico è un’azienda che possiede un servizio per la fatturazione, uno per la gestione degli ordini e uno per l’assistenza clienti. Tutti questi servizi comunicano attraverso l’ESB.</p>
+        <br>
+        <img src="assets/esb_soa.png" alt="immagine SOA" width="500">
+        <h2>MA - Architettura a Microservizi</h2>
 
-              <ul class="features-list">
-                <li><i class="bi bi-check-circle-fill"></i><span>Excepteur sint occaecat cupidatat non proident.</span></li>
-                <li><i class="bi bi-check-circle-fill"></i><span>Nemo enim ipsam voluptatem quia voluptas sit.</span></li>
-                <li><i class="bi bi-check-circle-fill"></i><span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              </ul>
+        <p>L’architettura a microservizi è un’evoluzione della SOA. In questo caso il sistema è diviso in tanti servizi più piccoli e indipendenti. Non c’è più un ESB centrale: ogni microservizio comunica con gli altri tramite API leggere, di solito REST o protocolli simili.
 
-              <a href="#" class="btn btn-primary">Discover More</a>
-            </div>
-          </div>
+            Le richieste dei client passano attraverso un API Gateway che smista le chiamate al microservizio corretto. Ogni microservizio possiede il proprio database e può essere sviluppato, aggiornato e distribuito separatamente dagli altri. Questo rende il sistema più flessibile e più semplice da scalare.
 
-          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="300">
-            <div class="image-composition">
-              <div class="image-main">
-                <img src="assets/img/about/about-9.webp" alt="Modern office with a team working" class="img-fluid" loading="lazy">
-              </div>
-              <div class="image-secondary">
-                <img src="assets/img/about/about-square-8.webp" alt="Collaborative discussion" class="img-fluid" loading="lazy">
-              </div>
-              <div class="stats-card">
-                <div class="stats-item">
-                  <h3>20+</h3>
-                  <p>Years of Expertise</p>
-                </div>
-                <div class="stats-item">
-                  <h3>500+</h3>
-                  <p>Happy Clients</p>
-                </div>
-              </div>
-            </div>
-          </div>
+            La scalabilità può essere fatta solo sul microservizio interessato, senza modificare gli altri. Inoltre, se un microservizio ha un problema, il resto del sistema continua a funzionare. Questo modello è adatto allo sviluppo su piattaforme cloud e a metodologie di lavoro agili, perché permette ai vari team di lavorare in parallelo su parti diverse dello stesso progetto.
 
-        </div>
-
-      </div>
+            Un esempio può essere un sito di e-commerce con un microservizio per i pagamenti, uno per il carrello, uno per la gestione degli utenti e uno per le spedizioni. Se quello delle spedizioni si blocca, gli altri continuano a funzionare.</p>
+        <img src="assets/api-gateway-1320x911.jpg" alt="immagine SOA" width="550">
+        </body>
+        </html>
 
     </section><!-- /About Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
-            <li data-filter="*" class="filter-active">All Projects</li>
-            <li data-filter=".filter-web">Web Design</li>
-            <li data-filter=".filter-mobile">Mobile Apps</li>
-            <li data-filter=".filter-branding">Branding</li>
-            <li data-filter=".filter-ui">UI/UX</li>
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
-            <div class="col-xl-4 col-lg-6 portfolio-item isotope-item filter-web">
-              <div class="portfolio-wrapper">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-7.webp" alt="Creative Web Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-7.webp" class="glightbox action-btn preview-btn" title="Preview Project">
-                        <i class="bi bi-eye"></i>
-                      </a>
-                      <a href="#" class="action-btn details-btn" title="View Details">
-                        <i class="bi bi-arrow-up-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <div class="portfolio-meta">
-                    <span class="project-type">Web Design</span>
-                    <div class="project-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <span>4.8</span>
-                    </div>
-                  </div>
-                  <h3>Digital Innovation Platform</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-                  <div class="portfolio-tech">
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">Node.js</span>
-                    <span class="tech-badge">AWS</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 portfolio-item isotope-item filter-mobile">
-              <div class="portfolio-wrapper">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-8.webp" alt="Mobile App Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-8.webp" class="glightbox action-btn preview-btn" title="Preview Project">
-                        <i class="bi bi-eye"></i>
-                      </a>
-                      <a href="#" class="action-btn details-btn" title="View Details">
-                        <i class="bi bi-arrow-up-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <div class="portfolio-meta">
-                    <span class="project-type">Mobile App</span>
-                    <div class="project-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <span>4.9</span>
-                    </div>
-                  </div>
-                  <h3>Smart Productivity App</h3>
-                  <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
-                  <div class="portfolio-tech">
-                    <span class="tech-badge">Flutter</span>
-                    <span class="tech-badge">Firebase</span>
-                    <span class="tech-badge">AI</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-wrapper">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-9.webp" alt="Branding Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-9.webp" class="glightbox action-btn preview-btn" title="Preview Project">
-                        <i class="bi bi-eye"></i>
-                      </a>
-                      <a href="#" class="action-btn details-btn" title="View Details">
-                        <i class="bi bi-arrow-up-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <div class="portfolio-meta">
-                    <span class="project-type">Branding</span>
-                    <div class="project-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <span>5.0</span>
-                    </div>
-                  </div>
-                  <h3>Modern Brand Identity</h3>
-                  <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur arcu erat, accumsan id.</p>
-                  <div class="portfolio-tech">
-                    <span class="tech-badge">Illustrator</span>
-                    <span class="tech-badge">Figma</span>
-                    <span class="tech-badge">Brand</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 portfolio-item isotope-item filter-ui">
-              <div class="portfolio-wrapper">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-10.webp" alt="UI/UX Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-10.webp" class="glightbox action-btn preview-btn" title="Preview Project">
-                        <i class="bi bi-eye"></i>
-                      </a>
-                      <a href="#" class="action-btn details-btn" title="View Details">
-                        <i class="bi bi-arrow-up-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <div class="portfolio-meta">
-                    <span class="project-type">UI/UX</span>
-                    <div class="project-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <span>4.7</span>
-                    </div>
-                  </div>
-                  <h3>SaaS Dashboard Design</h3>
-                  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                  <div class="portfolio-tech">
-                    <span class="tech-badge">Figma</span>
-                    <span class="tech-badge">Prototyping</span>
-                    <span class="tech-badge">UX</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 portfolio-item isotope-item filter-web">
-              <div class="portfolio-wrapper">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-11.webp" alt="E-commerce Platform" class="img-fluid" loading="lazy">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-11.webp" class="glightbox action-btn preview-btn" title="Preview Project">
-                        <i class="bi bi-eye"></i>
-                      </a>
-                      <a href="#" class="action-btn details-btn" title="View Details">
-                        <i class="bi bi-arrow-up-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <div class="portfolio-meta">
-                    <span class="project-type">E-commerce</span>
-                    <div class="project-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <span>4.6</span>
-                    </div>
-                  </div>
-                  <h3>E-commerce Platform</h3>
-                  <p>Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed.</p>
-                  <div class="portfolio-tech">
-                    <span class="tech-badge">Shopify</span>
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">API</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 portfolio-item isotope-item filter-mobile">
-              <div class="portfolio-wrapper">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-12.webp" alt="Fintech Mobile App" class="img-fluid" loading="lazy">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-12.webp" class="glightbox action-btn preview-btn" title="Preview Project">
-                        <i class="bi bi-eye"></i>
-                      </a>
-                      <a href="#" class="action-btn details-btn" title="View Details">
-                        <i class="bi bi-arrow-up-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <div class="portfolio-meta">
-                    <span class="project-type">Fintech</span>
-                    <div class="project-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <span>4.8</span>
-                    </div>
-                  </div>
-                  <h3>Fintech Mobile Solution</h3>
-                  <p>Cras ultricies ligula sed magna dictum porta. Proin eget tortor risus. Sed porttitor lectus nibh.</p>
-                  <div class="portfolio-tech">
-                    <span class="tech-badge">Swift</span>
-                    <span class="tech-badge">Kotlin</span>
-                    <span class="tech-badge">Blockchain</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Portfolio Items Container -->
-
-        </div>
-
-        <div class="portfolio-cta text-center" data-aos="fade-up" data-aos-delay="400">
-          <h4>Ready to start your next project?</h4>
-          <p>Let's work together to bring your digital vision to life</p>
-          <div class="cta-buttons">
-            <a href="#contact" class="btn btn-primary">Start a Project</a>
-            <a href="#portfolio" class="btn btn-outline">View All Work</a>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Why Us Section -->
-    <section id="why-us" class="why-us section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Why Us</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row g-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-card">
-              <div class="icon-wrapper">
-                <i class="bi bi-palette-fill"></i>
-              </div>
-              <h4>Creative Excellence</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
-              <div class="feature-stats">
-                <span class="stat-number" data-purecounter-start="0" data-purecounter-end="95" data-purecounter-duration="2">95</span>
-                <span class="stat-label">% Client Satisfaction</span>
-              </div>
-            </div>
-          </div><!-- End Feature Card -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="feature-card">
-              <div class="icon-wrapper">
-                <i class="bi bi-graph-up-arrow"></i>
-              </div>
-              <h4>Proven Results</h4>
-              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.</p>
-              <div class="feature-stats">
-                <span class="stat-number" data-purecounter-start="0" data-purecounter-end="200" data-purecounter-duration="2">200</span>
-                <span class="stat-label">% ROI Increase</span>
-              </div>
-            </div>
-          </div><!-- End Feature Card -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="feature-card">
-              <div class="icon-wrapper">
-                <i class="bi bi-award-fill"></i>
-              </div>
-              <h4>Expert Team</h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis.</p>
-              <div class="feature-stats">
-                <span class="stat-number" data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="2">50</span>
-                <span class="stat-label">+ Awards Won</span>
-              </div>
-            </div>
-          </div><!-- End Feature Card -->
-
-        </div>
-
-        <div class="row mt-5">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-            <div class="feature-showcase">
-              <img src="assets/img/illustration/illustration-14.webp" alt="Creative Process" class="img-fluid">
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-            <div class="feature-content">
-              <h3>Why Leading Brands Choose Us</h3>
-              <p class="lead">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.</p>
-
-              <div class="feature-list">
-                <div class="feature-item">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-circle-fill"></i>
-                  </div>
-                  <div class="feature-text">
-                    <h5>Strategic Thinking</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
-                  </div>
-                </div>
-
-                <div class="feature-item">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-circle-fill"></i>
-                  </div>
-                  <div class="feature-text">
-                    <h5>Data-Driven Approach</h5>
-                    <p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
-                  </div>
-                </div>
-
-                <div class="feature-item">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-circle-fill"></i>
-                  </div>
-                  <div class="feature-text">
-                    <h5>24/7 Support</h5>
-                    <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="cta-wrapper">
-                <a href="#" class="btn btn-primary">Start Your Project</a>
-                <a href="#" class="btn btn-outline">View Portfolio</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Why Us Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="testimonials-slider swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 4000
-              },
-              "slidesPerView": 1,
-              "centeredSlides": true,
-              "spaceBetween": 20,
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "768": {
-                  "slidesPerView": 1.5,
-                  "spaceBetween": 30
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 40
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="testimonial-header">
-                  <div class="user-avatar">
-                    <img src="assets/img/person/person-f-12.webp" alt="Profile Image">
-                  </div>
-                  <div class="user-info">
-                    <h3>Jennifer Martinez</h3>
-                    <span class="user-role">Product Designer</span>
-                    <div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-content">
-                  <div class="quote-mark">
-                    <i class="bi bi-quote"></i>
-                  </div>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <div class="company-badge">
-                    <i class="bi bi-building"></i>
-                    <span>TechCorp</span>
-                  </div>
-                  <div class="verified-badge">
-                    <i class="bi bi-patch-check-fill"></i>
-                    <span>Verified</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="testimonial-header">
-                  <div class="user-avatar">
-                    <img src="assets/img/person/person-m-11.webp" alt="Profile Image">
-                  </div>
-                  <div class="user-info">
-                    <h3>Alexander Chen</h3>
-                    <span class="user-role">Frontend Engineer</span>
-                    <div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-content">
-                  <div class="quote-mark">
-                    <i class="bi bi-quote"></i>
-                  </div>
-                  <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <div class="company-badge">
-                    <i class="bi bi-building"></i>
-                    <span>InnovateLab</span>
-                  </div>
-                  <div class="verified-badge">
-                    <i class="bi bi-patch-check-fill"></i>
-                    <span>Verified</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="300">
-                <div class="testimonial-header">
-                  <div class="user-avatar">
-                    <img src="assets/img/person/person-f-8.webp" alt="Profile Image">
-                  </div>
-                  <div class="user-info">
-                    <h3>Rachel Taylor</h3>
-                    <span class="user-role">Marketing Lead</span>
-                    <div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-content">
-                  <div class="quote-mark">
-                    <i class="bi bi-quote"></i>
-                  </div>
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <div class="company-badge">
-                    <i class="bi bi-building"></i>
-                    <span>GrowthCo</span>
-                  </div>
-                  <div class="verified-badge">
-                    <i class="bi bi-patch-check-fill"></i>
-                    <span>Verified</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="testimonial-header">
-                  <div class="user-avatar">
-                    <img src="assets/img/person/person-m-14.webp" alt="Profile Image">
-                  </div>
-                  <div class="user-info">
-                    <h3>Christopher Lee</h3>
-                    <span class="user-role">VP Engineering</span>
-                    <div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-content">
-                  <div class="quote-mark">
-                    <i class="bi bi-quote"></i>
-                  </div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <div class="company-badge">
-                    <i class="bi bi-building"></i>
-                    <span>DevStream</span>
-                  </div>
-                  <div class="verified-badge">
-                    <i class="bi bi-patch-check-fill"></i>
-                    <span>Verified</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="testimonial-header">
-                  <div class="user-avatar">
-                    <img src="assets/img/person/person-f-5.webp" alt="Profile Image">
-                  </div>
-                  <div class="user-info">
-                    <h3>Amanda Rodriguez</h3>
-                    <span class="user-role">UX Researcher</span>
-                    <div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-content">
-                  <div class="quote-mark">
-                    <i class="bi bi-quote"></i>
-                  </div>
-                  <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <div class="company-badge">
-                    <i class="bi bi-building"></i>
-                    <span>UserFirst</span>
-                  </div>
-                  <div class="verified-badge">
-                    <i class="bi bi-patch-check-fill"></i>
-                    <span>Verified</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
-    <!-- Team Section -->
-    <section id="team" class="team section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row g-4">
-
-          <div class="col-lg-6">
-            <div class="team-intro" data-aos="fade-right" data-aos-delay="150">
-              <div class="intro-content">
-                <h3>Meet Our Exceptional Team</h3>
-                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
-                <div class="stats-row">
-                  <div class="stat-item">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Team Members</span>
-                  </div>
-                  <div class="stat-item">
-                    <span class="stat-number">8</span>
-                    <span class="stat-label">Departments</span>
-                  </div>
-                  <div class="stat-item">
-                    <span class="stat-number">15+</span>
-                    <span class="stat-label">Countries</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="team-grid" data-aos="fade-left" data-aos-delay="200">
-              <div class="member-hexagon" data-aos="zoom-in" data-aos-delay="250">
-                <div class="hexagon-inner">
-                  <img src="assets/img/person/person-f-3.webp" alt="Team member">
-                  <div class="member-overlay">
-                    <h5>Sarah Chen</h5>
-                    <span>Creative Director</span>
-                    <div class="social-icons">
-                      <a href="#"><i class="bi bi-linkedin"></i></a>
-                      <a href="#"><i class="bi bi-twitter"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="member-hexagon" data-aos="zoom-in" data-aos-delay="300">
-                <div class="hexagon-inner">
-                  <img src="assets/img/person/person-m-4.webp" alt="Team member">
-                  <div class="member-overlay">
-                    <h5>Marcus Johnson</h5>
-                    <span>Tech Lead</span>
-                    <div class="social-icons">
-                      <a href="#"><i class="bi bi-github"></i></a>
-                      <a href="#"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="member-hexagon" data-aos="zoom-in" data-aos-delay="350">
-                <div class="hexagon-inner">
-                  <img src="assets/img/person/person-f-8.webp" alt="Team member">
-                  <div class="member-overlay">
-                    <h5>Emma Rodriguez</h5>
-                    <span>Product Manager</span>
-                    <div class="social-icons">
-                      <a href="#"><i class="bi bi-instagram"></i></a>
-                      <a href="#"><i class="bi bi-dribbble"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="member-hexagon" data-aos="zoom-in" data-aos-delay="400">
-                <div class="hexagon-inner">
-                  <img src="assets/img/person/person-m-6.webp" alt="Team member">
-                  <div class="member-overlay">
-                    <h5>David Kim</h5>
-                    <span>UX Architect</span>
-                    <div class="social-icons">
-                      <a href="#"><i class="bi bi-behance"></i></a>
-                      <a href="#"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="row mt-5">
-          <div class="col-12">
-            <div class="team-carousel-wrapper" data-aos="fade-up" data-aos-delay="200">
-              <h4 class="carousel-title">Leadership Team</h4>
-
-              <div class="leadership-slider swiper init-swiper">
-                <script type="application/json" class="swiper-config">
-                  {
-                    "loop": true,
-                    "speed": 600,
-                    "autoplay": {
-                      "delay": 4000
-                    },
-                    "slidesPerView": 1,
-                    "spaceBetween": 0,
-                    "pagination": {
-                      "el": ".swiper-pagination",
-                      "clickable": true
-                    },
-                    "breakpoints": {
-                      "768": {
-                        "slidesPerView": 2
-                      },
-                      "1024": {
-                        "slidesPerView": 3
-                      }
-                    }
-                  }
-                </script>
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="leader-card">
-                      <div class="leader-image">
-                        <img src="assets/img/person/person-f-14.webp" alt="Leader">
-                      </div>
-                      <div class="leader-info">
-                        <h5>Jennifer Walsh</h5>
-                        <span class="position">Chief Executive Officer</span>
-                        <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id.</p>
-                        <div class="leader-contact">
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-envelope"></i>
-                          </a>
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-linkedin"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="swiper-slide">
-                    <div class="leader-card">
-                      <div class="leader-image">
-                        <img src="assets/img/person/person-m-13.webp" alt="Leader">
-                      </div>
-                      <div class="leader-info">
-                        <h5>Robert Martinez</h5>
-                        <span class="position">Chief Technology Officer</span>
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis.</p>
-                        <div class="leader-contact">
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-envelope"></i>
-                          </a>
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-github"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="swiper-slide">
-                    <div class="leader-card">
-                      <div class="leader-image">
-                        <img src="assets/img/person/person-f-5.webp" alt="Leader">
-                      </div>
-                      <div class="leader-info">
-                        <h5>Lisa Thompson</h5>
-                        <span class="position">Head of Operations</span>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        <div class="leader-contact">
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-envelope"></i>
-                          </a>
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-twitter"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="swiper-slide">
-                    <div class="leader-card">
-                      <div class="leader-image">
-                        <img src="assets/img/person/person-m-9.webp" alt="Leader">
-                      </div>
-                      <div class="leader-info">
-                        <h5>Alex Garcia</h5>
-                        <span class="position">VP of Marketing</span>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
-                        <div class="leader-contact">
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-envelope"></i>
-                          </a>
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-instagram"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-pagination"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row mt-4">
-          <div class="col-lg-8 offset-lg-2">
-            <div class="join-team-cta" data-aos="fade-up" data-aos-delay="300">
-              <div class="cta-icon">
-                <i class="bi bi-rocket-takeoff"></i>
-              </div>
-              <div class="cta-content">
-                <h4>Ready to Join Our Mission?</h4>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.</p>
-                <div class="cta-actions">
-                  <a href="#" class="btn btn-primary">View Open Roles</a>
-                  <a href="#" class="btn btn-outline">Learn Our Culture</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Team Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row align-items-center">
-          <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
-            <div class="contact-form-card">
-              <div class="form-header">
-                <div class="header-icon">
-                  <i class="bi bi-chat-dots-fill"></i>
-                </div>
-                <h3>Let's Start a Conversation</h3>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.</p>
-              </div>
-
-              <form action="forms/contact.php" method="post" class="php-email-form">
-                <div class="row">
-                  <div class="col-md-6 mb-3">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <input type="email" class="form-control" name="email" placeholder="Email Address" required="">
-                  </div>
-                </div>
-
-                <div class="mb-3">
-                  <input type="text" class="form-control" name="subject" placeholder="What's this about?" required="">
-                </div>
-
-                <div class="mb-4">
-                  <textarea class="form-control" name="message" rows="4" placeholder="Tell us more about your project..." required=""></textarea>
-                </div>
-
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                </div>
-
-                <button type="submit" class="submit-btn">
-                  <span>Send Message</span>
-                  <i class="bi bi-send-fill"></i>
-                </button>
-              </form>
-            </div>
-          </div>
-
-          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
-            <div class="contact-info-area">
-              <div class="info-header">
-                <h3>Ready to Transform Your Ideas?</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore.</p>
-              </div>
-
-              <div class="contact-methods">
-                <div class="method-card" data-aos="zoom-in" data-aos-delay="250">
-                  <div class="card-icon">
-                    <i class="bi bi-envelope-at"></i>
-                  </div>
-                  <div class="card-content">
-                    <h5>Email Us</h5>
-                    <p>hello@productdemo.com</p>
-                    <span class="response-time">Response in 2-4 hours</span>
-                  </div>
-                </div>
-
-                <div class="method-card" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="card-icon">
-                    <i class="bi bi-telephone"></i>
-                  </div>
-                  <div class="card-content">
-                    <h5>Call Us</h5>
-                    <p>+1 (555) 987-6543</p>
-                    <span class="response-time">Available 9AM - 6PM EST</span>
-                  </div>
-                </div>
-
-                <div class="method-card" data-aos="zoom-in" data-aos-delay="350">
-                  <div class="card-icon">
-                    <i class="bi bi-geo-alt"></i>
-                  </div>
-                  <div class="card-content">
-                    <h5>Visit Our Office</h5>
-                    <p>4821 Broadway Street, New York, NY 10013</p>
-                    <span class="response-time">Open Monday - Friday</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="additional-info" data-aos="fade-up" data-aos-delay="400">
-                <div class="info-stats">
-                  <div class="stat-item">
-                    <div class="stat-number">24h</div>
-                    <div class="stat-label">Average Response</div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Client Satisfaction</div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-number">150+</div>
-                    <div class="stat-label">Projects Delivered</div>
-                  </div>
-                </div>
-
-                <div class="social-connect">
-                  <h6>Connect With Us</h6>
-                  <div class="social-links">
-                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-github"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-discord"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- /Contact Section -->
-
-  </main>
-
-  <footer id="footer" class="footer position-relative dark-background">
-
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Clarity</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Hic solutasetp</h4>
-          <ul>
-            <li><a href="#">Molestiae accusamus iure</a></li>
-            <li><a href="#">Excepturi dignissimos</a></li>
-            <li><a href="#">Suscipit distinctio</a></li>
-            <li><a href="#">Dilecta</a></li>
-            <li><a href="#">Sit quas consectetur</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Nobis illum</h4>
-          <ul>
-            <li><a href="#">Ipsam</a></li>
-            <li><a href="#">Laudantium dolorum</a></li>
-            <li><a href="#">Dinera</a></li>
-            <li><a href="#">Trodelas</a></li>
-            <li><a href="#">Flexo</a></li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Clarity</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+      <section id="services" class="services section">
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <title>Perché si passa da SOA a Microservizi</title>
+          </head>
+          <body>
+          <h1>Perché si passa da SOA a Microservizi</h1>
+          <p>
+              Il passaggio da SOA a microservizi non è casuale: è motivato da esigenze concrete delle aziende moderne. Con il tempo, la SOA ha mostrato limiti legati alla rigidità e alla centralizzazione, che rendevano difficile adattarsi rapidamente ai cambiamenti del mercato e alle nuove tecnologie.
+          <p>Velocità di rilascio</p>
+          In SOA, ogni modifica richiedeva approvazioni, coordinamento tra team e aggiornamenti di servizi complessi. Questo rallentava l’innovazione e la possibilità di reagire rapidamente. I microservizi risolvono questo problema perché ogni servizio può essere sviluppato, testato e distribuito in autonomia, senza dipendere dagli altri componenti. Questo permette cicli di rilascio più brevi e frequenti.
+          <p>Scalabilità mirata</p>
+          Con SOA, per gestire un aumento del carico spesso si dovevano scalare interi blocchi di servizi, con costi elevati e inefficienza. Nei microservizi, invece, è possibile scalare solo il servizio che ne ha bisogno: ad esempio, durante un picco di traffico in un e-commerce, si può scalare solo il microservizio che gestisce i pagamenti, senza aumentare le risorse per l’intero sistema.
+          <p>Resilienza</p>
+          In un’architettura SOA centralizzata, il malfunzionamento di un componente critico o dell’ESB poteva compromettere l’intero sistema. I microservizi isolano i guasti: se un servizio cade, gli altri continuano a funzionare, riducendo i downtime e migliorando la continuità operativa.
+          Flessibilità tecnologica</p>
+          SOA imponeva standard rigidi per linguaggi, database e protocolli, limitando la libertà dei team di sperimentare e scegliere le tecnologie migliori per ogni funzione. I microservizi consentono invece di adottare strumenti diversi a seconda delle necessità, accelerando l’innovazione e la capacità di adattamento.
+          <p>Compatibilità con Cloud e DevOps</p>
+          L’adozione dei microservizi è favorita dalla compatibilità con le pratiche moderne di cloud e DevOps. Tecnologie come container, orchestratori e pipeline CI/CD richiedono servizi indipendenti e modulari. I microservizi si integrano naturalmente in questo ecosistema, mentre la SOA, nata in un’epoca precedente, si adatta con maggiore difficoltà.
+          <p>Conclusione</p>
+          In sintesi, il passaggio da SOA a microservizi è guidato da cinque esigenze principali: velocità, scalabilità mirata, resilienza, flessibilità tecnologica e compatibilità con il cloud/DevOps. Non si tratta di un semplice cambio di moda, ma di una scelta strategica per rendere i sistemi più agili, efficienti e affidabili.</p>
+          </body>
+          </html>
+
+
+          <section id="portfolio" class="portfolio section">
+              <!DOCTYPE html>
+              <html lang="en">
+              <head>
+                  <meta charset="UTF-8">
+                  <title>Descrizione</title>
+              </head>
+              <body>
+              <h1>Descrizione microservices</h1>
+              <p>
+                  Un’architettura a microservizi è un modello in cui un’applicazione è scomposta in molti servizi più o meno indipendenti, ciascuno responsabile di una certa funzionalità o ambito di business.
+              </p>
+              <p>Ogni microservizio:</p>
+
+              <p>È autonomo: ha un proprio ciclo di vita (sviluppo, test, deploy) e può essere aggiornato o modificato senza influenzare gli altri.
+                  È loosely coupled: i servizi dipendono il meno possibile l’uno dall’altro, in modo che eventuali modifiche o problemi in uno non si ripercuotano sugli altri.
+                  Ha il proprio stack tecnologico: un insieme di tecnologie, linguaggi e strumenti scelti per le proprie esigenze, oltre al proprio database. Questo serve ad evitare che i servizi si “incrocino” a livello di dati e a garantire maggiore indipendenza.
+                  Comunica tramite protocolli leggeri: i microservizi parlano tra loro usando metodi semplici, veloci e poco costosi (in termini di risorse).
+              </p>
+
+              <p>Un grande vantaggio dei microservizi è la scalabilità: ogni servizio può essere potenziato singolarmente se riceve più richieste, senza dover modificare l’intera applicazione. Inoltre, i microservizi possono essere distribuiti e aggiornati in modo indipendente, permettendo di aggiungere nuove funzioni o correggere errori più rapidamente.
+              </p>
+              <p>Anche la manutenzione risulta più semplice, perché ogni servizio è più piccolo, facile da capire e da testare. Spesso, ogni microservizio viene gestito da un piccolo team dedicato, che può lavorare in modo indipendente dagli altri.
+              </p>
+              <p>Tuttavia, questa architettura porta anche alcune difficoltà, come una maggiore complessità nella comunicazione tra i servizi, la necessità di monitoraggio costante e una gestione più accurata dell’infrastruttura.
+              </p>
+              </body>
+              </html>
+    </section>
+          <section id="team" class="team section">
+              <!DOCTYPE html>
+              <html lang="en">
+              <head>
+                  <meta charset="UTF-8">
+                  <title>Protocolli</title>
+              </head>
+              <body>
+              <h1>Protocolli</h1>
+              <p>I microservizi utilizzano diversi protocolli di comunicazione a seconda che la comunicazione sia sincrona o asincrona e se sia interna o esterna. I protocolli più comuni includono HTTP/REST per la comunicazione sincrona, AMQP per la messaggistica asincrona e gRPC per le chiamate di procedura remota ad alte prestazioni. La scelta del protocollo dipende dal caso d'uso specifico, come la comunicazione tra servizi all'interno di un cluster o con sistemi esterni.
+                  Protocolli sincroni</p>
+              <p>HTTP/REST: Molto comune per la comunicazione sincrona (richiesta/risposta), specialmente quando i servizi devono essere esposti pubblicamente.
+              </p><p>gRPC: Un framework per le chiamate di procedura remota ad alte prestazioni, spesso usato per la comunicazione interna tra microservizi.
+              </p><p>TCP: Può essere utilizzato per la comunicazione tra servizi, specialmente in formati binari, per una maggiore efficienza.
+                  Protocolli asincroni
+              </p><p>AMQP: Un protocollo di messaggistica standard utilizzato per la comunicazione asincrona e affidabile tra i microservizi, spesso tramite broker di messaggi.
+                  Messaggistica asincrona generica: Si basa sull'invio e la ricezione di messaggi, che possono essere in formati diversi come JSON o XML.
+                  Altri protocolli
+              </p><p>SOAP: Un protocollo standardizzato, spesso associato ai servizi web tradizionali, che può essere utilizzato anche per la comunicazione con altri sistemi esterni.
+              </p><p>XML-RPC: Un altro protocollo per la comunicazione tra i servizi.
+              </p><p>Protocolli di transazione distribuiti: Per gestire transazioni complesse che coinvolgono più microservizi, vengono utilizzati protocolli come XA, Long-Running Actions (LRA) e try-confirm/cancel (TCC).</p>
+              </body>
+              </html>
+
+          </section>
+          <section id="contact" class="contact section">
+              <!DOCTYPE html>
+              <html lang="en">
+              <head>
+                  <meta charset="UTF-8">
+                  <title>Caratteristiche principali</title>
+              </head>
+              <body>
+              <h1>Caratteristiche principali</h1>
+              <p>1. Servizio unico / Single Responsibility</p>
+              <p>Ogni microservizio è progettato attorno a una singola funzionalità di business ben definita, non a un insieme eterogeneo di compiti. Autonomia e deploy indipendente</p>
+              <br>
+              <p>2. Ogni servizio può essere sviluppato, testato, distribuito e scalato in modo indipendente dagli altri. Ciò aumenta l’agilità e riduce i rischi sul rilascio.</p>
+              <br>
+              <p>3. Accoppiamento debole (Loose coupling)</p>
+              <p>I microservizi sono “leggeri” nelle dipendenze reciproche: comunicano tramite interfacce (API) ben definite, riducendo l’impatto delle modifiche.</p>
+              <br>
+              <p>4. Dati decentralizzati / Proprietà dei dati per servizio</p>
+              <p>Ogni microservizio gestisce il proprio storage/database, evitando database applicativi condivisi che causano dipendenze forti e complessità.</p>
+              <br>
+              <p>5. Scalabilità e resilienza</p>
+              <p>È possibile scalare solo il microservizio che ne ha bisogno (in orizzontale, ad esempio), e un guasto in un servizio non necessariamente compromette l’intera applicazione.</p>
+              <br>
+              <p>6. Organizzazione attorno al dominio di business</p>
+              <p>L’architettura viene spesso strutturata ragionando in termini di domini (domain-driven design) piuttosto che solo layer tecnici.</p>
+              <br>
+              <p>7. Tecnologie eterogenee e indipendenza tecnologica</p>
+              <p>Ogni servizio può usare il linguaggio, il framework, il database che più si adattano al suo scopo (“polyglot persistence”, “polyglot programming”).</p>
+              <br>
+              <p>8. Osservabilità, Fail-fast, tolleranza ai guasti</p>
+              <p>In un sistema distribuito occorre prevedere il fallimento di un servizio. Vengono quindi adottati pattern come circuit breaker, retry, fallback; monitoraggio, logging e tracing diventano fondamentali.</p>
+              <br>
+              <p>9. Automazione, CI/CD, contenitori / cloud-native</p>
+              <p>I microservizi spesso nascono o sono implementati in ambienti che supportano containerizzazione, orchestrazione (es. Kubernetes), e pipeline di integrazione e distribuzione continue.</p>
+              <br>
+              <hr>
+              <p>Quando conviene e quali i trade-off</p>
+              <p>Vantaggi: maggiore agilità, capacità di cambiamento locale (senza toccare tutto), migliore scalabilità, autonomia dei team, possibilità di scegliere tecnologie specifiche per ciascuna parte del sistema.</p>
+              <br>
+              <p>Sfide: complessità dei sistemi distribuiti (network, latenza, consistenza dei dati), gestione delle versioni delle API, operazioni più complesse (monitoraggio, distribuzione, test), individuazione della giusta granularità dei servizi.</p>
+              </body>
+              </html>
+          </section>
+          <br><br><br><br>
+          Sitografia:
+          <br><a href="https://universeit.blog/architettura-a-microservizi/">https://universeit.blog/architettura-a-microservizi/</a>
+          <br><a href="https://aws.amazon.com/it/compare/the-difference-between-soa-microservices/">https://aws.amazon.com/it/compare/the-difference-between-soa-microservices/</a>
+          <br><a href="https://developer.ibm.com/articles/why-microservices/">https://developer.ibm.com/articles/why-microservices/</a>
+          <br><a href="https://martinfowler.com/articles/microservices.html">https://martinfowler.com/articles/microservices.html</a>
+          <br><a href="https://www.atlassian.com/microservices">https://www.atlassian.com/microservices</a>
+          <br><a href="https://aws.amazon.com/microservices">https://aws.amazon.com/microservices</a>
+          <br><a href="https://aws.amazon.com/microservices">https://aws.amazon.com/microservices</a>
+          <br><a href="https://microservices.io/post/architecture/2023/03/28/microservice-architecture-essentials-loose-coupling.html">https://microservices.io/post/architecture/2023/03/28/microservice-architecture-essentials-loose-coupling.html</a>
+          <br><a href="https://www.ibm.com/think/topics/microservices">https://www.ibm.com/think/topics/microservices</a>
+          <script src="assets/js/main.js"></script>
 </body>
 
 </html>
