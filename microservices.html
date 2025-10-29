@@ -64,27 +64,15 @@
   </header>
 
   <main class="main">
-
     <!-- Hero Section -->
-    <section id="hero" class="hero section">
+    <section id="hero" class="hero section text-center d-flex align-items-center justify-content-center" style="min-height: 60vh; color: white;">
+  <div>
+    <h1 class="fw-bold mb-3">Architettura dei Microservizi</h1>
+    <p class="lead">Un viaggio da SOA a MA — evoluzione delle architetture moderne.</p>
+    <img src="assets/img/gruppo_microservizi/microservizi.png"></a>
+  </div>
+</section>
 
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-            <div class="hero-content">
-              <h1>Transform Your Digital Presence</h1>
-              <p>We create innovative digital solutions that drive growth and elevate your brand. From web development to digital marketing, we're your partners in digital transformation.</p>
-            </div>
-          </div>
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-            <div class="hero-visual">
-              <div class="hero-image">
-                <img src="assets/img/misc/***" alt="Digital Agency Hero" class="img-fluid">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div class="hero-bg-elements">
         <div class="bg-shape shape-1"></div>
@@ -96,39 +84,126 @@
 
     <!-- About Section -->
     <section id="about" class="about section">
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="utf-8">
-            <title>SOA e MA</title>
-        </head>
-        <body>
-        <p>I software sono nati inizialmente per essere una singola entità, sviluppato con un solo linguaggio di programmazione e un solo eseguibile che gestisce tutto. Col tempo, questo sistema è diventato inefficiente perché
-            presenta diversi svantaggi, che vanno dalla scalabilità, ai problemi di resilienza passando per gli aggiornamenti. Per questi motivi sono nate due architetture più complesse e che permettono la divisione del lavoro.</p>
-        <h2>SOA service oriented architecture</h2>
-        <p>L’architettura SOA è un sistema informatico in cui ci sono servizi che comunicano tra loro attraverso un sistema centralizzato chiamato Enterprise Service Bus.
-            L’ESB è il cuore dell’architettura e si occupa di gestire tutte le comunicazioni tra i servizi, indirizzare le richieste al servizio corretto, trasformare i dati, controllare la sicurezza e registrare i log delle operazioni.
+   
 
-            Ogni servizio in una SOA è indipendente nelle sue funzioni ma collegato agli altri attraverso l’ESB. I servizi sono di solito completi e utilizzano database condivisi.
-            Se il sistema deve crescere, si può effettuare una scalabilità orizzontale aggiungendo server o istanze per migliorare le prestazioni e la capacità di resistere ai guasti. In questo modo eventuali problemi non bloccano l’intero sistema.
 
-            SOA è nata nei primi anni Duemila per aiutare le aziende a collegare tra loro sistemi diversi. È molto utile nei contesti dove ci sono molte applicazioni da integrare, ma è anche più complessa da gestire rispetto ad altri modelli più recenti.
 
-            Un esempio tipico è un’azienda che possiede un servizio per la fatturazione, uno per la gestione degli ordini e uno per l’assistenza clienti. Tutti questi servizi comunicano attraverso l’ESB.</p>
-        <br>
-        <img src="assets/img/gruppo_microservizi/esb_soa.png" alt="immagine SOA" width="500">
-        <h2>MA - Architettura a Microservizi</h2>
 
-        <p>L’architettura a microservizi è un’evoluzione della SOA. In questo caso il sistema è diviso in tanti servizi più piccoli e indipendenti. Non c’è più un ESB centrale: ogni microservizio comunica con gli altri tramite API leggere, di solito REST o protocolli simili.
 
-            Le richieste dei client passano attraverso un API Gateway che smista le chiamate al microservizio corretto. Ogni microservizio possiede il proprio database e può essere sviluppato, aggiornato e distribuito separatamente dagli altri. Questo rende il sistema più flessibile e più semplice da scalare.
 
-            La scalabilità può essere fatta solo sul microservizio interessato, senza modificare gli altri. Inoltre, se un microservizio ha un problema, il resto del sistema continua a funzionare. Questo modello è adatto allo sviluppo su piattaforme cloud e a metodologie di lavoro agili, perché permette ai vari team di lavorare in parallelo su parti diverse dello stesso progetto.
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>SOA e Microservizi</title>
 
-            Un esempio può essere un sito di e-commerce con un microservizio per i pagamenti, uno per il carrello, uno per la gestione degli utenti e uno per le spedizioni. Se quello delle spedizioni si blocca, gli altri continuano a funzionare.</p>
-        <img src="assets/img/gruppo_microservizi/api-gateway-1320x911.jpg" alt="immagine SOA" width="550">
-        </body>
-        </html>
+  <style>
+
+    .section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .section img {
+      width: 45%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .section .text {
+      width: 50%;
+      min-width: 300px;
+      flex: 1;
+    }
+
+    .reverse {
+      flex-direction: row-reverse;
+    }
+
+
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .section img, .section .text {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5">
+
+    <h1 class="text-center fw-bold mb-4">SOA e Architettura a Microservizi</h1>
+
+    <p class="intro">
+      I software sono nati inizialmente per essere una singola entità, sviluppati con un solo linguaggio di programmazione e un solo eseguibile che gestisce tutto. 
+      Col tempo, questo sistema è diventato inefficiente perché presenta diversi svantaggi, che vanno dalla scalabilità, ai problemi di resilienza passando per gli aggiornamenti. 
+      Per questi motivi sono nate due architetture più complesse e che permettono la divisione del lavoro.
+    </p>
+
+
+    <div class="section">
+      <img src="assets/img/gruppo_microservizi/esb_soa.png" alt="Schema architettura SOA">
+      <div class="text">
+        <h2>SOA – Service Oriented Architecture</h2>
+        <p>
+          L’architettura SOA è un sistema informatico in cui ci sono servizi che comunicano tra loro attraverso un sistema centralizzato chiamato 
+          <strong>Enterprise Service Bus (ESB)</strong>. L’ESB è il cuore dell’architettura e si occupa di gestire tutte le comunicazioni tra i servizi, 
+          indirizzare le richieste al servizio corretto, trasformare i dati, controllare la sicurezza e registrare i log delle operazioni.
+        </p>
+        <p>
+          Ogni servizio in una SOA è indipendente nelle sue funzioni ma collegato agli altri attraverso l’ESB. 
+          Se il sistema deve crescere, si può effettuare una scalabilità orizzontale aggiungendo server o istanze per migliorare le prestazioni 
+          e la capacità di resistere ai guasti. In questo modo eventuali problemi non bloccano l’intero sistema.
+        </p>
+        <p>
+          Un esempio tipico è un’azienda che possiede un servizio per la fatturazione, uno per la gestione degli ordini e uno per l’assistenza clienti. 
+          Tutti questi servizi comunicano attraverso l’ESB.
+        </p>
+      </div>
+    </div>
+
+
+    <div class="section reverse">
+      <img src="assets/img/gruppo_microservizi/api-gateway-1320x911.jpg" alt="Schema architettura a microservizi">
+      <div class="text">
+        <h2>MA – Architettura a Microservizi</h2>
+        <p>
+          L’architettura a microservizi è un’evoluzione della SOA. In questo caso il sistema è diviso in tanti servizi più piccoli e indipendenti. 
+          Non c’è più un ESB centrale: ogni microservizio comunica con gli altri tramite API leggere, di solito REST o protocolli simili.
+        </p>
+        <p>
+          Le richieste dei client passano attraverso un <strong>API Gateway</strong> che smista le chiamate al microservizio corretto. 
+          Ogni microservizio possiede il proprio database e può essere sviluppato, aggiornato e distribuito separatamente dagli altri. 
+          Questo rende il sistema più flessibile e più semplice da scalare.
+        </p>
+        <p>
+          Un esempio può essere un sito di e-commerce con un microservizio per i pagamenti, uno per il carrello, uno per la gestione degli utenti 
+          e uno per le spedizioni. Se quello delle spedizioni si blocca, gli altri continuano a funzionare.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
 
     </section><!-- /About Section -->
       <section id="services" class="services section">
