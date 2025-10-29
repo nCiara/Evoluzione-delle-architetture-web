@@ -1,1204 +1,857 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Clarity Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Docker</title>
+    <meta name="description" content="Guida completa a Docker: storia, architettura, comandi, best practice e tutto ciò che devi sapere sulla containerizzazione">
+    <meta name="keywords" content="docker, container, virtualizzazione, devops, microservizi, orchestrazione">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link href="assets/img/docker/title_logo.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Clarity
-  * Template URL: https://bootstrapmade.com/clarity-bootstrap-agency-template/
-  * Updated: Sep 13 2025 with Bootstrap v5.3.8
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    
+    <style>
+        .feature-card {
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid #0d6efd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 5px 5px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .comparison-table th {
+            background-color: #212529;
+            color: white;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #0d6efd;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #0d6efd;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -23px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #0d6efd;
+        }
+    </style>
 </head>
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div
+            class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="#hero" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <h1 class="sitename">Docker</h1>
-      </a>
+            <a href="#hero" class="logo d-flex align-items-center me-auto me-xl-0">
+                <h1 class="sitename">Docker Guide</h1>
+            </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="home.html" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-    </div>
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
-
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-            <div class="hero-content">
-              <h1>Transform Your Digital Presence</h1>
-              <p>We create innovative digital solutions that drive growth and elevate your brand. From web development to digital marketing, we're your partners in digital transformation.</p>
-            </div>
-          </div>
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-            <div class="hero-visual">
-              <div class="hero-image">
-                <img src="assets/img/misc/***" alt="Digital Agency Hero" class="img-fluid">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-bg-elements">
-        <div class="bg-shape shape-1"></div>
-        <div class="bg-shape shape-2"></div>
-        <div class="bg-particles"></div>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-5 align-items-center">
-
-          <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
-            <div class="content">
-              <h6 class="subtitle">Discover Our Story</h6>
-              <h2>Innovative Solutions for a Digital-First World</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-
-              <ul class="features-list">
-                <li><i class="bi bi-check-circle-fill"></i><span>Excepteur sint occaecat cupidatat non proident.</span></li>
-                <li><i class="bi bi-check-circle-fill"></i><span>Nemo enim ipsam voluptatem quia voluptas sit.</span></li>
-                <li><i class="bi bi-check-circle-fill"></i><span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              </ul>
-
-              <a href="#" class="btn btn-primary">Discover More</a>
-            </div>
-          </div>
-
-          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="300">
-            <div class="image-composition">
-              <div class="image-main">
-                <img src="assets/img/about/about-9.webp" alt="Modern office with a team working" class="img-fluid" loading="lazy">
-              </div>
-              <div class="image-secondary">
-                <img src="assets/img/about/about-square-8.webp" alt="Collaborative discussion" class="img-fluid" loading="lazy">
-              </div>
-              <div class="stats-card">
-                <div class="stats-item">
-                  <h3>20+</h3>
-                  <p>Years of Expertise</p>
-                </div>
-                <div class="stats-item">
-                  <h3>500+</h3>
-                  <p>Happy Clients</p>
-                </div>
-              </div>
-            </div>
-          </div>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="#introduzione">Introduzione</a></li>
+                    <li><a href="#storia">Storia</a></li>
+                    <li><a href="#architettura">Architettura</a></li>
+                    <li><a href="#container-vs-vm">Container vs VM</a></li>
+                    <li><a href="#comandi">Comandi</a></li>
+                    <li><a href="#dockerfile">Dockerfile</a></li>
+                    <li><a href="#compose">Docker Compose</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
 
         </div>
+    </header>
 
-      </div>
-
-    </section><!-- /About Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
-            <li data-filter="*" class="filter-active">All Projects</li>
-            <li data-filter=".filter-web">Web Design</li>
-            <li data-filter=".filter-mobile">Mobile Apps</li>
-            <li data-filter=".filter-branding">Branding</li>
-            <li data-filter=".filter-ui">UI/UX</li>
-          </ul><!-- End Portfolio Filters -->
-
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
-            <div class="col-xl-4 col-lg-6 portfolio-item isotope-item filter-web">
-              <div class="portfolio-wrapper">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-7.webp" alt="Creative Web Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-7.webp" class="glightbox action-btn preview-btn" title="Preview Project">
-                        <i class="bi bi-eye"></i>
-                      </a>
-                      <a href="#" class="action-btn details-btn" title="View Details">
-                        <i class="bi bi-arrow-up-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <div class="portfolio-meta">
-                    <span class="project-type">Web Design</span>
-                    <div class="project-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <span>4.8</span>
-                    </div>
-                  </div>
-                  <h3>Digital Innovation Platform</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-                  <div class="portfolio-tech">
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">Node.js</span>
-                    <span class="tech-badge">AWS</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 portfolio-item isotope-item filter-mobile">
-              <div class="portfolio-wrapper">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-8.webp" alt="Mobile App Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-8.webp" class="glightbox action-btn preview-btn" title="Preview Project">
-                        <i class="bi bi-eye"></i>
-                      </a>
-                      <a href="#" class="action-btn details-btn" title="View Details">
-                        <i class="bi bi-arrow-up-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <div class="portfolio-meta">
-                    <span class="project-type">Mobile App</span>
-                    <div class="project-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <span>4.9</span>
-                    </div>
-                  </div>
-                  <h3>Smart Productivity App</h3>
-                  <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
-                  <div class="portfolio-tech">
-                    <span class="tech-badge">Flutter</span>
-                    <span class="tech-badge">Firebase</span>
-                    <span class="tech-badge">AI</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 portfolio-item isotope-item filter-branding">
-              <div class="portfolio-wrapper">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-9.webp" alt="Branding Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-9.webp" class="glightbox action-btn preview-btn" title="Preview Project">
-                        <i class="bi bi-eye"></i>
-                      </a>
-                      <a href="#" class="action-btn details-btn" title="View Details">
-                        <i class="bi bi-arrow-up-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <div class="portfolio-meta">
-                    <span class="project-type">Branding</span>
-                    <div class="project-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <span>5.0</span>
-                    </div>
-                  </div>
-                  <h3>Modern Brand Identity</h3>
-                  <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur arcu erat, accumsan id.</p>
-                  <div class="portfolio-tech">
-                    <span class="tech-badge">Illustrator</span>
-                    <span class="tech-badge">Figma</span>
-                    <span class="tech-badge">Brand</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 portfolio-item isotope-item filter-ui">
-              <div class="portfolio-wrapper">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-10.webp" alt="UI/UX Project" class="img-fluid" loading="lazy">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-10.webp" class="glightbox action-btn preview-btn" title="Preview Project">
-                        <i class="bi bi-eye"></i>
-                      </a>
-                      <a href="#" class="action-btn details-btn" title="View Details">
-                        <i class="bi bi-arrow-up-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <div class="portfolio-meta">
-                    <span class="project-type">UI/UX</span>
-                    <div class="project-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <span>4.7</span>
-                    </div>
-                  </div>
-                  <h3>SaaS Dashboard Design</h3>
-                  <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-                  <div class="portfolio-tech">
-                    <span class="tech-badge">Figma</span>
-                    <span class="tech-badge">Prototyping</span>
-                    <span class="tech-badge">UX</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 portfolio-item isotope-item filter-web">
-              <div class="portfolio-wrapper">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-11.webp" alt="E-commerce Platform" class="img-fluid" loading="lazy">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-11.webp" class="glightbox action-btn preview-btn" title="Preview Project">
-                        <i class="bi bi-eye"></i>
-                      </a>
-                      <a href="#" class="action-btn details-btn" title="View Details">
-                        <i class="bi bi-arrow-up-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <div class="portfolio-meta">
-                    <span class="project-type">E-commerce</span>
-                    <div class="project-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <span>4.6</span>
-                    </div>
-                  </div>
-                  <h3>E-commerce Platform</h3>
-                  <p>Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed.</p>
-                  <div class="portfolio-tech">
-                    <span class="tech-badge">Shopify</span>
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">API</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-lg-6 portfolio-item isotope-item filter-mobile">
-              <div class="portfolio-wrapper">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/portfolio-12.webp" alt="Fintech Mobile App" class="img-fluid" loading="lazy">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/portfolio-12.webp" class="glightbox action-btn preview-btn" title="Preview Project">
-                        <i class="bi bi-eye"></i>
-                      </a>
-                      <a href="#" class="action-btn details-btn" title="View Details">
-                        <i class="bi bi-arrow-up-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <div class="portfolio-meta">
-                    <span class="project-type">Fintech</span>
-                    <div class="project-rating">
-                      <i class="bi bi-star-fill"></i>
-                      <span>4.8</span>
-                    </div>
-                  </div>
-                  <h3>Fintech Mobile Solution</h3>
-                  <p>Cras ultricies ligula sed magna dictum porta. Proin eget tortor risus. Sed porttitor lectus nibh.</p>
-                  <div class="portfolio-tech">
-                    <span class="tech-badge">Swift</span>
-                    <span class="tech-badge">Kotlin</span>
-                    <span class="tech-badge">Blockchain</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- End Portfolio Items Container -->
-
-        </div>
-
-        <div class="portfolio-cta text-center" data-aos="fade-up" data-aos-delay="400">
-          <h4>Ready to start your next project?</h4>
-          <p>Let's work together to bring your digital vision to life</p>
-          <div class="cta-buttons">
-            <a href="#contact" class="btn btn-primary">Start a Project</a>
-            <a href="#portfolio" class="btn btn-outline">View All Work</a>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Why Us Section -->
-    <section id="why-us" class="why-us section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Why Us</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row g-4">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-card">
-              <div class="icon-wrapper">
-                <i class="bi bi-palette-fill"></i>
-              </div>
-              <h4>Creative Excellence</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
-              <div class="feature-stats">
-                <span class="stat-number" data-purecounter-start="0" data-purecounter-end="95" data-purecounter-duration="2">95</span>
-                <span class="stat-label">% Client Satisfaction</span>
-              </div>
-            </div>
-          </div><!-- End Feature Card -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="feature-card">
-              <div class="icon-wrapper">
-                <i class="bi bi-graph-up-arrow"></i>
-              </div>
-              <h4>Proven Results</h4>
-              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.</p>
-              <div class="feature-stats">
-                <span class="stat-number" data-purecounter-start="0" data-purecounter-end="200" data-purecounter-duration="2">200</span>
-                <span class="stat-label">% ROI Increase</span>
-              </div>
-            </div>
-          </div><!-- End Feature Card -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="feature-card">
-              <div class="icon-wrapper">
-                <i class="bi bi-award-fill"></i>
-              </div>
-              <h4>Expert Team</h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis.</p>
-              <div class="feature-stats">
-                <span class="stat-number" data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="2">50</span>
-                <span class="stat-label">+ Awards Won</span>
-              </div>
-            </div>
-          </div><!-- End Feature Card -->
-
-        </div>
-
-        <div class="row mt-5">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-            <div class="feature-showcase">
-              <img src="assets/img/illustration/illustration-14.webp" alt="Creative Process" class="img-fluid">
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-            <div class="feature-content">
-              <h3>Why Leading Brands Choose Us</h3>
-              <p class="lead">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.</p>
-
-              <div class="feature-list">
-                <div class="feature-item">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-circle-fill"></i>
-                  </div>
-                  <div class="feature-text">
-                    <h5>Strategic Thinking</h5>
-                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
-                  </div>
-                </div>
-
-                <div class="feature-item">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-circle-fill"></i>
-                  </div>
-                  <div class="feature-text">
-                    <h5>Data-Driven Approach</h5>
-                    <p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
-                  </div>
-                </div>
-
-                <div class="feature-item">
-                  <div class="feature-icon">
-                    <i class="bi bi-check-circle-fill"></i>
-                  </div>
-                  <div class="feature-text">
-                    <h5>24/7 Support</h5>
-                    <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="cta-wrapper">
-                <a href="#" class="btn btn-primary">Start Your Project</a>
-                <a href="#" class="btn btn-outline">View Portfolio</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Why Us Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="testimonials-slider swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 4000
-              },
-              "slidesPerView": 1,
-              "centeredSlides": true,
-              "spaceBetween": 20,
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "768": {
-                  "slidesPerView": 1.5,
-                  "spaceBetween": 30
-                },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 40
-                }
-              }
-            }
-          </script>
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="testimonial-header">
-                  <div class="user-avatar">
-                    <img src="assets/img/person/person-f-12.webp" alt="Profile Image">
-                  </div>
-                  <div class="user-info">
-                    <h3>Jennifer Martinez</h3>
-                    <span class="user-role">Product Designer</span>
-                    <div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-content">
-                  <div class="quote-mark">
-                    <i class="bi bi-quote"></i>
-                  </div>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <div class="company-badge">
-                    <i class="bi bi-building"></i>
-                    <span>TechCorp</span>
-                  </div>
-                  <div class="verified-badge">
-                    <i class="bi bi-patch-check-fill"></i>
-                    <span>Verified</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="testimonial-header">
-                  <div class="user-avatar">
-                    <img src="assets/img/person/person-m-11.webp" alt="Profile Image">
-                  </div>
-                  <div class="user-info">
-                    <h3>Alexander Chen</h3>
-                    <span class="user-role">Frontend Engineer</span>
-                    <div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-content">
-                  <div class="quote-mark">
-                    <i class="bi bi-quote"></i>
-                  </div>
-                  <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <div class="company-badge">
-                    <i class="bi bi-building"></i>
-                    <span>InnovateLab</span>
-                  </div>
-                  <div class="verified-badge">
-                    <i class="bi bi-patch-check-fill"></i>
-                    <span>Verified</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="300">
-                <div class="testimonial-header">
-                  <div class="user-avatar">
-                    <img src="assets/img/person/person-f-8.webp" alt="Profile Image">
-                  </div>
-                  <div class="user-info">
-                    <h3>Rachel Taylor</h3>
-                    <span class="user-role">Marketing Lead</span>
-                    <div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-content">
-                  <div class="quote-mark">
-                    <i class="bi bi-quote"></i>
-                  </div>
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <div class="company-badge">
-                    <i class="bi bi-building"></i>
-                    <span>GrowthCo</span>
-                  </div>
-                  <div class="verified-badge">
-                    <i class="bi bi-patch-check-fill"></i>
-                    <span>Verified</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="testimonial-header">
-                  <div class="user-avatar">
-                    <img src="assets/img/person/person-m-14.webp" alt="Profile Image">
-                  </div>
-                  <div class="user-info">
-                    <h3>Christopher Lee</h3>
-                    <span class="user-role">VP Engineering</span>
-                    <div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-content">
-                  <div class="quote-mark">
-                    <i class="bi bi-quote"></i>
-                  </div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <div class="company-badge">
-                    <i class="bi bi-building"></i>
-                    <span>DevStream</span>
-                  </div>
-                  <div class="verified-badge">
-                    <i class="bi bi-patch-check-fill"></i>
-                    <span>Verified</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="testimonial-header">
-                  <div class="user-avatar">
-                    <img src="assets/img/person/person-f-5.webp" alt="Profile Image">
-                  </div>
-                  <div class="user-info">
-                    <h3>Amanda Rodriguez</h3>
-                    <span class="user-role">UX Researcher</span>
-                    <div class="rating">
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                      <i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="testimonial-content">
-                  <div class="quote-mark">
-                    <i class="bi bi-quote"></i>
-                  </div>
-                  <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
-                </div>
-                <div class="testimonial-footer">
-                  <div class="company-badge">
-                    <i class="bi bi-building"></i>
-                    <span>UserFirst</span>
-                  </div>
-                  <div class="verified-badge">
-                    <i class="bi bi-patch-check-fill"></i>
-                    <span>Verified</span>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-
-    </section><!-- /Testimonials Section -->
-
-    <!-- Team Section -->
-    <section id="team" class="team section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row g-4">
-
-          <div class="col-lg-6">
-            <div class="team-intro" data-aos="fade-right" data-aos-delay="150">
-              <div class="intro-content">
-                <h3>Meet Our Exceptional Team</h3>
-                <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
-                <div class="stats-row">
-                  <div class="stat-item">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Team Members</span>
-                  </div>
-                  <div class="stat-item">
-                    <span class="stat-number">8</span>
-                    <span class="stat-label">Departments</span>
-                  </div>
-                  <div class="stat-item">
-                    <span class="stat-number">15+</span>
-                    <span class="stat-label">Countries</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="team-grid" data-aos="fade-left" data-aos-delay="200">
-              <div class="member-hexagon" data-aos="zoom-in" data-aos-delay="250">
-                <div class="hexagon-inner">
-                  <img src="assets/img/person/person-f-3.webp" alt="Team member">
-                  <div class="member-overlay">
-                    <h5>Sarah Chen</h5>
-                    <span>Creative Director</span>
-                    <div class="social-icons">
-                      <a href="#"><i class="bi bi-linkedin"></i></a>
-                      <a href="#"><i class="bi bi-twitter"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="member-hexagon" data-aos="zoom-in" data-aos-delay="300">
-                <div class="hexagon-inner">
-                  <img src="assets/img/person/person-m-4.webp" alt="Team member">
-                  <div class="member-overlay">
-                    <h5>Marcus Johnson</h5>
-                    <span>Tech Lead</span>
-                    <div class="social-icons">
-                      <a href="#"><i class="bi bi-github"></i></a>
-                      <a href="#"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="member-hexagon" data-aos="zoom-in" data-aos-delay="350">
-                <div class="hexagon-inner">
-                  <img src="assets/img/person/person-f-8.webp" alt="Team member">
-                  <div class="member-overlay">
-                    <h5>Emma Rodriguez</h5>
-                    <span>Product Manager</span>
-                    <div class="social-icons">
-                      <a href="#"><i class="bi bi-instagram"></i></a>
-                      <a href="#"><i class="bi bi-dribbble"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="member-hexagon" data-aos="zoom-in" data-aos-delay="400">
-                <div class="hexagon-inner">
-                  <img src="assets/img/person/person-m-6.webp" alt="Team member">
-                  <div class="member-overlay">
-                    <h5>David Kim</h5>
-                    <span>UX Architect</span>
-                    <div class="social-icons">
-                      <a href="#"><i class="bi bi-behance"></i></a>
-                      <a href="#"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="row mt-5">
-          <div class="col-12">
-            <div class="team-carousel-wrapper" data-aos="fade-up" data-aos-delay="200">
-              <h4 class="carousel-title">Leadership Team</h4>
-
-              <div class="leadership-slider swiper init-swiper">
-                <script type="application/json" class="swiper-config">
-                  {
-                    "loop": true,
-                    "speed": 600,
-                    "autoplay": {
-                      "delay": 4000
-                    },
-                    "slidesPerView": 1,
-                    "spaceBetween": 0,
-                    "pagination": {
-                      "el": ".swiper-pagination",
-                      "clickable": true
-                    },
-                    "breakpoints": {
-                      "768": {
-                        "slidesPerView": 2
-                      },
-                      "1024": {
-                        "slidesPerView": 3
-                      }
-                    }
-                  }
-                </script>
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="leader-card">
-                      <div class="leader-image">
-                        <img src="assets/img/person/person-f-14.webp" alt="Leader">
-                      </div>
-                      <div class="leader-info">
-                        <h5>Jennifer Walsh</h5>
-                        <span class="position">Chief Executive Officer</span>
-                        <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id.</p>
-                        <div class="leader-contact">
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-envelope"></i>
-                          </a>
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-linkedin"></i>
-                          </a>
+    <main class="main">
+        <!-- Introduzione Section -->
+        <section id="introduzione" class="about section">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-5 align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+                        <div class="content">
+                            <h2>Cos'è Docker?</h2>
+                            <p>
+                                <b>Docker</b> è una piattaforma open source che automatizza il deployment di applicazioni all'interno di <b>container software</b>. 
+                                I container consentono di incapsulare un'applicazione con tutte le sue dipendenze (librerie, file di configurazione, variabili d'ambiente) 
+                                in un'unica unità eseguibile standardizzata.
+                            </p>
+                            <p>
+                                A differenza delle macchine virtuali tradizionali, i container <b>condividono il kernel del sistema operativo host</b>, 
+                                risultando molto più leggeri e veloci da avviare. Questo approccio risolve il problema del "<i>funziona sulla mia macchina</i>" 
+                                garantendo coerenza tra ambienti di sviluppo, testing e produzione.
+                            </p>
+                            
+                            <h4>Perché usare Docker?</h4>
+                            <ul class="features-list">
+                                <li><i class="bi bi-check-circle-fill"></i><span><b>Isolamento</b> - Ogni applicazione gira in un ambiente isolato</span></li>
+                                <li><i class="bi bi-check-circle-fill"></i><span><b>Portabilità</b> - Esegui lo stesso container ovunque</span></li>
+                                <li><i class="bi bi-check-circle-fill"></i><span><b>Scalabilità</b> - Facile scalare orizzontalmente le applicazioni</span></li>
+                                <li><i class="bi bi-check-circle-fill"></i><span><b>Efficienza</b> - Minore consumo di risorse rispetto alle VM</span></li>
+                                <li><i class="bi bi-check-circle-fill"></i><span><b>Versioning</b> - Tracking delle versioni delle immagini</span></li>
+                                <li><i class="bi bi-check-circle-fill"></i><span><b>Ecosistema</b> - Vasto marketplace di immagini pre-costruite</span></li>
+                            </ul>
                         </div>
-                      </div>
                     </div>
-                  </div>
 
-                  <div class="swiper-slide">
-                    <div class="leader-card">
-                      <div class="leader-image">
-                        <img src="assets/img/person/person-m-13.webp" alt="Leader">
-                      </div>
-                      <div class="leader-info">
-                        <h5>Robert Martinez</h5>
-                        <span class="position">Chief Technology Officer</span>
-                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis.</p>
-                        <div class="leader-contact">
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-envelope"></i>
-                          </a>
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-github"></i>
-                          </a>
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+                        <div class="image-composition">
+                            <div class="image-main">
+                                <img src="assets/img/docker/logo_balena.png" alt="Architettura Docker" class="img-fluid" loading="lazy">
+                            </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
-
-                  <div class="swiper-slide">
-                    <div class="leader-card">
-                      <div class="leader-image">
-                        <img src="assets/img/person/person-f-5.webp" alt="Leader">
-                      </div>
-                      <div class="leader-info">
-                        <h5>Lisa Thompson</h5>
-                        <span class="position">Head of Operations</span>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        <div class="leader-contact">
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-envelope"></i>
-                          </a>
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-twitter"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="swiper-slide">
-                    <div class="leader-card">
-                      <div class="leader-image">
-                        <img src="assets/img/person/person-m-9.webp" alt="Leader">
-                      </div>
-                      <div class="leader-info">
-                        <h5>Alex Garcia</h5>
-                        <span class="position">VP of Marketing</span>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
-                        <div class="leader-contact">
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-envelope"></i>
-                          </a>
-                          <a href="#" class="contact-btn">
-                            <i class="bi bi-instagram"></i>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-                <div class="swiper-pagination"></div>
-              </div>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <div class="row mt-4">
-          <div class="col-lg-8 offset-lg-2">
-            <div class="join-team-cta" data-aos="fade-up" data-aos-delay="300">
-              <div class="cta-icon">
-                <i class="bi bi-rocket-takeoff"></i>
-              </div>
-              <div class="cta-content">
-                <h4>Ready to Join Our Mission?</h4>
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.</p>
-                <div class="cta-actions">
-                  <a href="#" class="btn btn-primary">View Open Roles</a>
-                  <a href="#" class="btn btn-outline">Learn Our Culture</a>
+        <hr>
+
+        <!-- Storia Section -->
+        <section id="storia" class="section">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Storia ed Evoluzione di Docker</h2>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-      </div>
-
-    </section><!-- /Team Section -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row align-items-center">
-          <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
-            <div class="contact-form-card">
-              <div class="form-header">
-                <div class="header-icon">
-                  <i class="bi bi-chat-dots-fill"></i>
-                </div>
-                <h3>Let's Start a Conversation</h3>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint.</p>
-              </div>
-
-              <form action="forms/contact.php" method="post" class="php-email-form">
                 <div class="row">
-                  <div class="col-md-6 mb-3">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <input type="email" class="form-control" name="email" placeholder="Email Address" required="">
-                  </div>
+                    <div class="col-lg-8 mx-auto">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4>2010 - I Precursori</h4>
+                                <p>
+                                    Le tecnologie di containerizzazione esistevano già prima di Docker. 
+                                    <b>LXC (Linux Containers)</b> forniva le basi per l'isolamento a livello di sistema operativo, 
+                                    ma richiedeva una configurazione complessa e non offriva un formato standard per le applicazioni.
+                                </p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4>2013 - Nascita di Docker</h4>
+                                <p>
+                                    <b>Solomon Hykes</b> presenta Docker alla conferenza PyCon come progetto interno di <b>dotCloud</b>, 
+                                    una piattaforma PaaS. L'idea era di creare uno strumento che semplificasse la distribuzione di applicazioni 
+                                    sfruttando la containerizzazione, ma con un approccio più user-friendly.
+                                </p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4>2014 - Docker diventa Open Source</h4>
+                                <p>
+                                    Docker viene rilasciato come progetto open source e rapidamente guadagna popolarità nella comunità developer. 
+                                    Viene introdotto <b>Docker Hub</b>, il registry pubblico per condividere immagini Docker.
+                                </p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4>2015 - Standardizzazione e Ecosistema</h4>
+                                <p>
+                                    Nascono standard come <b>OCI (Open Container Initiative)</b> e <b>CNCF (Cloud Native Computing Foundation)</b>. 
+                                    Viene introdotto <b>Docker Compose</b> per orchestrare applicazioni multi-container.
+                                </p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4>2017-oggi - Enterprise e Kubernetes</h4>
+                                <p>
+                                    Docker si espande nel mondo enterprise con Docker Enterprise Edition. 
+                                    L'ecosistema si evolve con l'ascesa di <b>Kubernetes</b> come standard de facto per l'orchestrazione di container, 
+                                    e Docker integra sempre più funzionalità per supportare questo ecosistema.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="mb-3">
-                  <input type="text" class="form-control" name="subject" placeholder="What's this about?" required="">
-                </div>
-
-                <div class="mb-4">
-                  <textarea class="form-control" name="message" rows="4" placeholder="Tell us more about your project..." required=""></textarea>
-                </div>
-
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                </div>
-
-                <button type="submit" class="submit-btn">
-                  <span>Send Message</span>
-                  <i class="bi bi-send-fill"></i>
-                </button>
-              </form>
             </div>
-          </div>
+        </section>
 
-          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
-            <div class="contact-info-area">
-              <div class="info-header">
-                <h3>Ready to Transform Your Ideas?</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore.</p>
-              </div>
+        <hr>
 
-              <div class="contact-methods">
-                <div class="method-card" data-aos="zoom-in" data-aos-delay="250">
-                  <div class="card-icon">
-                    <i class="bi bi-envelope-at"></i>
-                  </div>
-                  <div class="card-content">
-                    <h5>Email Us</h5>
-                    <p>hello@productdemo.com</p>
-                    <span class="response-time">Response in 2-4 hours</span>
-                  </div>
-                </div>
-
-                <div class="method-card" data-aos="zoom-in" data-aos-delay="300">
-                  <div class="card-icon">
-                    <i class="bi bi-telephone"></i>
-                  </div>
-                  <div class="card-content">
-                    <h5>Call Us</h5>
-                    <p>+1 (555) 987-6543</p>
-                    <span class="response-time">Available 9AM - 6PM EST</span>
-                  </div>
-                </div>
-
-                <div class="method-card" data-aos="zoom-in" data-aos-delay="350">
-                  <div class="card-icon">
-                    <i class="bi bi-geo-alt"></i>
-                  </div>
-                  <div class="card-content">
-                    <h5>Visit Our Office</h5>
-                    <p>4821 Broadway Street, New York, NY 10013</p>
-                    <span class="response-time">Open Monday - Friday</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="additional-info" data-aos="fade-up" data-aos-delay="400">
-                <div class="info-stats">
-                  <div class="stat-item">
-                    <div class="stat-number">24h</div>
-                    <div class="stat-label">Average Response</div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Client Satisfaction</div>
-                  </div>
-                  <div class="stat-item">
-                    <div class="stat-number">150+</div>
-                    <div class="stat-label">Projects Delivered</div>
-                  </div>
-                </div>
-
-                <div class="social-connect">
-                  <h6>Connect With Us</h6>
-                  <div class="social-links">
-                    <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-github"></i></a>
-                    <a href="#" class="social-link"><i class="bi bi-discord"></i></a>
-                  </div>
-                </div>
-              </div>
+        <!-- Architettura Section -->
+        <section id="architettura" class="why-us section">
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Architettura di Docker</h2>
             </div>
-          </div>
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-card">
+                            <div class="icon-wrapper">
+                                <i class="bi bi-terminal-fill"></i>
+                            </div>
+                            <h4>Docker Client</h4>
+                            <p>
+                                Interfaccia a riga di comando (CLI) che permette agli utenti di interagire con Docker. 
+                                Il client invia comandi al Docker Daemon tramite l'API REST.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="feature-card">
+                            <div class="icon-wrapper">
+                                <i class="bi bi-gear-fill"></i>
+                            </div>
+                            <h4>Docker Daemon</h4>
+                            <p>
+                                Il motore di Docker che gira in background e gestisce container, immagini, reti e volumi. 
+                                Ascolta le richieste del client e le elabora.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="feature-card">
+                            <div class="icon-wrapper">
+                                <i class="bi bi-cloud-arrow-down-fill"></i>
+                            </div>
+                            <h4>Docker Registry</h4>
+                            <p>
+                                Repository per archiviare e distribuire immagini Docker. 
+                                <b>Docker Hub</b> è il registry pubblico ufficiale, ma è possibile utilizzare registry privati.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h4>Componenti Kernel Linux</h4>
+                        <ul>
+                            <li><b>Namespaces</b> - Forniscono isolamento per processi, reti, filesystem, etc.</li>
+                            <li><b>Control Groups (cgroups)</b> - Limitano e monitorano l'uso di risorse (CPU, memoria, I/O)</li>
+                            <li><b>Union File Systems</b> - Permettono la creazione di immagini a strati leggere</li>
+                            <li><b>Container Runtime</b> - Implementazioni come runc che eseguono effettivamente i container</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h4>Immagini e Container</h4>
+                        <p>
+                            Un'<b>immagine Docker</b> è un template di sola lettura che contiene le istruzioni per creare un container. 
+                            È composta da una serie di layer, ognuno dei quali rappresenta una modifica al filesystem.
+                        </p>
+                        <p>
+                            Un <b>container</b> è un'istanza eseguibile di un'immagine. 
+                            Aggiunge un layer scrivibile sopra l'immagine di base, permettendo l'esecuzione dell'applicazione.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Container vs VM Section -->
+        <section id="container-vs-vm" class="section">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Container Docker vs Macchine Virtuali</h2>
+                </div>
+
+                <div class="row mb-5">
+                    <div class="col-lg-6" data-aos="fade-right">
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h4>Differenze Architetturali Fondamentali</h4>
+                        <p>
+                            Le <b>macchine virtuali</b> virtualizzano l'hardware, richiedendo un sistema operativo completo 
+                            per ogni istanza (guest OS). Questo comporta overhead significativo in termini di risorse.
+                        </p>
+                        <p>
+                            I <b>container Docker</b> virtualizzano a livello di sistema operativo, condividendo il kernel 
+                            dell'host. Ogni container esegue come processo isolato, risultando molto più leggero ed efficiente.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped comparison-table">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Caratteristica</th>
+                                <th>Docker Container</th>
+                                <th>Macchine Virtuali</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>Tempo di avvio</b></td>
+                                <td>Secondi o millisecondi</td>
+                                <td>Minuti</td>
+                            </tr>
+                            <tr>
+                                <td><b>Dimensioni</b></td>
+                                <td>MB (solo app e dipendenze)</td>
+                                <td>GB (SO completo incluso)</td>
+                            </tr>
+                            <tr>
+                                <td><b>Densita</b></td>
+                                <td>Alta - centinaia per host</td>
+                                <td>Bassa - 10-20 per host</td>
+                            </tr>
+                            <tr>
+                                <td><b>Isolamento</b></td>
+                                <td>Processo a livello di OS</td>
+                                <td>Completo a livello di hardware</td>
+                            </tr>
+                            <tr>
+                                <td><b>Portabilità</b></td>
+                                <td>Alta - stesso container ovunque</td>
+                                <td>Limitata - dipende dall'hypervisor</td>
+                            </tr>
+                            <tr>
+                                <td><b>Sicurezza</b></td>
+                                <td>Namespace e cgroups</td>
+                                <td>Hypervisor completo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Comandi Section -->
+        <section id="comandi" class="section">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Comandi Docker Essenziali</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="nav nav-pills mb-4 justify-content-center" id="commandsTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="images-tab" data-bs-toggle="pill" data-bs-target="#images" type="button" role="tab">Immagini</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="containers-tab" data-bs-toggle="pill" data-bs-target="#containers" type="button" role="tab">Container</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="network-tab" data-bs-toggle="pill" data-bs-target="#network" type="button" role="tab">Rete</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="volumes-tab" data-bs-toggle="pill" data-bs-target="#volumes" type="button" role="tab">Volumi</button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="commandsTabContent">
+                            <!-- Images Tab -->
+                            <div class="tab-pane fade show active" id="images" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Gestione Immagini</h5>
+                                        <div class="code-block">
+                                            <code>docker pull nginx:latest</code><br>
+                                            <small style="color: gray;">Scarica un'immagine dal registry</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker images</code><br>
+                                            <small style="color: gray;">Lista tutte le immagini locali</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker rmi nginx:latest</code><br>
+                                            <small style="color: gray;">Rimuove un'immagine locale</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Build Immagini</h5>
+                                        <div class="code-block">
+                                            <code>docker build -t myapp:1.0 .</code><br>
+                                            <small style="color: gray;">Costruisce un'immagine dal Dockerfile</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker tag myapp:1.0 myrepo/myapp:1.0</code><br>
+                                            <small style="color: gray;">Tagga un'immagine per il push</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker push myrepo/myapp:1.0</code><br>
+                                            <small style="color: gray;">Carica un'immagine sul registry</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Containers Tab -->
+                            <div class="tab-pane fade" id="containers" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Gestione Container</h5>
+                                        <div class="code-block">
+                                            <code>docker run -d --name mycontainer nginx</code><br>
+                                            <small style="color: gray;">Avvia un container in background</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker ps</code><br>
+                                            <small style="color: gray;">Lista container attivi</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker ps -a</code><br>
+                                            <small style="color: gray;">Lista tutti i container</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker stop mycontainer</code><br>
+                                            <small style="color: gray;">Ferma un container</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Interazione con Container</h5>
+                                        <div class="code-block">
+                                            <code>docker exec -it mycontainer bash</code><br>
+                                            <small style="color: gray;">Esegue un comando in un container attivo</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker logs mycontainer</code><br>
+                                            <small style="color: gray;">Visualizza i log di un container</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker inspect mycontainer</code><br>
+                                            <small style="color: gray;">Informazioni dettagliate su un container</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker rm mycontainer</code><br>
+                                            <small style="color: gray;">Rimuove un container</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Network Tab -->
+                            <div class="tab-pane fade" id="network" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Gestione Reti</h5>
+                                        <div class="code-block">
+                                            <code>docker network ls</code><br>
+                                            <small style="color: gray;">Lista tutte le reti</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker network create mynetwork</code><br>
+                                            <small style="color: gray;">Crea una nuova rete</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker network inspect mynetwork</code><br>
+                                            <small style="color: gray;">Dettagli di una rete</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Container in Rete</h5>
+                                        <div class="code-block">
+                                            <code>docker run --net=mynetwork nginx</code><br>
+                                            <small style="color: gray;">Avvia un container in una rete specifica</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker network connect mynetwork mycontainer</code><br>
+                                            <small style="color: gray;">Connette un container a una rete</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker network disconnect mynetwork mycontainer</code><br>
+                                            <small style="color: gray;">Disconnette un container da una rete</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Volumes Tab -->
+                            <div class="tab-pane fade" id="volumes" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Gestione Volumi</h5>
+                                        <div class="code-block">
+                                            <code>docker volume ls</code><br>
+                                            <small style="color: gray;">Lista tutti i volumi</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker volume create myvolume</code><br>
+                                            <small style="color: gray;">Crea un nuovo volume</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker volume inspect myvolume</code><br>
+                                            <small style="color: gray;">Dettagli di un volume</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Utilizzo Volumi</h5>
+                                        <div class="code-block">
+                                            <code>docker run -v myvolume:/data nginx</code><br>
+                                            <small style="color: gray;">Monta un volume in un container</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker run -v /host/path:/container/path nginx</code><br>
+                                            <small style="color: gray;">Monta una directory host in un container</small>
+                                        </div>
+                                        <div class="code-block">
+                                            <code>docker volume rm myvolume</code><br>
+                                            <small style="color: gray;">Rimuove un volume</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Dockerfile Section -->
+        <section id="dockerfile" class="section">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Dockerfile: Creare Immagini Personalizzate</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h4>Cos'è un Dockerfile?</h4>
+                        <p>
+                            Un <b>Dockerfile</b> è un file di testo che contiene tutte le istruzioni necessarie 
+                            per costruire un'immagine Docker. Definisce:
+                        </p>
+                        <ul>
+                            <li>L'immagine di base da cui partire</li>
+                            <li>I comandi da eseguire durante il build</li>
+                            <li>I file da copiare nell'immagine</li>
+                            <li>Le variabili d'ambiente da impostare</li>
+                            <li>Il comando di default da eseguire</li>
+                        </ul>
+
+                        <h4 class="mt-4">Istruzioni Principali</h4>
+                        <ul>
+                            <li><b>FROM</b> - Specifica l'immagine base</li>
+                            <li><b>RUN</b> - Esegue comandi durante il build</li>
+                            <li><b>COPY/ADD</b> - Copia file nell'immagine</li>
+                            <li><b>WORKDIR</b> - Imposta la directory di lavoro</li>
+                            <li><b>ENV</b> - Imposta variabili d'ambiente</li>
+                            <li><b>EXPOSE</b> - Documenta le porte da esporre</li>
+                            <li><b>CMD/ENTRYPOINT</b> - Specifica il comando di avvio</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h4>Esempio di Dockerfile</h4>
+                        <div class="code-block">
+                            <code>
+                                # Utilizza un'immagine base di Node.js<br>
+                                FROM node:16-alpine<br><br>
+                                
+                                # Imposta la directory di lavoro<br>
+                                WORKDIR /app<br><br>
+                                
+                                # Copia il package.json e package-lock.json<br>
+                                COPY package*.json ./<br><br>
+                                
+                                # Installa le dipendenze<br>
+                                RUN npm ci --only=production<br><br>
+                                
+                                # Copia il codice sorgente<br>
+                                COPY . .<br><br>
+                                
+                                # Espone la porta 3000<br>
+                                EXPOSE 3000<br><br>
+                                
+                                # Definisce il comando di avvio<br>
+                                CMD ["node", "app.js"]
+                            </code>
+                        </div>
+
+                        <h4>Best Practices per Dockerfile</h4>
+                        <ul>
+                            <li>Usa immagini base ufficiali e leggere</li>
+                            <li>Minimizza il numero di layer (combina comandi RUN)</li>
+                            <li>Usa .dockerignore per escludere file non necessari</li>
+                            <li>Ordina le istruzioni dal meno al più frequente cambiamento</li>
+                            <li>Utilizza utenti non-root quando possibile</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Docker Compose Section -->
+        <section id="compose" class="section">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Docker Compose: Orchestrazione Multi-Container</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h4>Cos'è Docker Compose?</h4>
+                        <p>
+                            <b>Docker Compose</b> è uno strumento che permette di definire e gestire 
+                            applicazioni multi-container attraverso un file YAML. 
+                            Con un singolo comando, è possibile avviare tutti i servizi di un'applicazione.
+                        </p>
+
+                        <h4 class="mt-4">Vantaggi di Docker Compose</h4>
+                        <ul>
+                            <li>Definizione centralizzata di tutti i servizi</li>
+                            <li>Facile configurazione di reti e volumi condivisi</li>
+                            <li>Gestione semplificata delle dipendenze tra servizi</li>
+                            <li>Riproducibilità degli ambienti di sviluppo</li>
+                            <li>Testing di applicazioni multi-container</li>
+                        </ul>
+
+                        <h4 class="mt-4">Comandi Principali</h4>
+                        <div class="code-block">
+                            <code>docker-compose up -d</code><br>
+                            <small style="color: gray;">Avvia tutti i servizi in background</small>
+                        </div>
+                        <div class="code-block">
+                            <code>docker-compose down</code><br>
+                            <small style="color: gray;">Ferma e rimuove tutti i servizi</small>
+                        </div>
+                        <div class="code-block">
+                            <code>docker-compose ps</code><br>
+                            <small style="color: gray;">Mostra lo stato dei servizi</small>
+                        </div>
+                        <div class="code-block">
+                            <code>docker-compose logs</code><br>
+                            <small style="color: gray;">Visualizza i log di tutti i servizi</small>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h4>Esempio di docker-compose.yml</h4>
+                        <div class="code-block">
+                            <code>
+                                version: '3.8'<br><br>
+                                
+                                services:<br>
+                                  web:<br>
+                                    build: .<br>
+                                    ports:<br>
+                                      - "3000:3000"<br>
+                                    environment:<br>
+                                      - NODE_ENV=production<br>
+                                    depends_on:<br>
+                                      - db<br><br>
+                                
+                                  db:<br>
+                                    image: postgres:13<br>
+                                    environment:<br>
+                                      POSTGRES_DB: myapp<br>
+                                      POSTGRES_USER: user<br>
+                                      POSTGRES_PASSWORD: password<br>
+                                    volumes:<br>
+                                      - db_data:/var/lib/postgresql/data<br>
+                                    ports:<br>
+                                      - "5432:5432"<br><br>
+                                
+                                volumes:<br>
+                                  db_data:
+                            </code>
+                        </div>
+
+                        <h4 class="mt-4">Casi d'Uso Comuni</h4>
+                        <ul>
+                            <li>Applicazioni web con database</li>
+                            <li>Stack LAMP/LEMP (Linux, Apache/Nginx, MySQL, PHP)</li>
+                            <li>Microservizi che comunicano tra loro</li>
+                            <li>Ambienti di sviluppo con servizi di supporto</li>
+                            <li>Testing di integrazione con servizi mock</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Best Practices Section -->
+        <section id="best-practices" class="section">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Best Practices e Sicurezza</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h4>Sicurezza dei Container</h4>
+                        <div class="feature-card">
+                            <div class="icon-wrapper">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h5>Principio del Privilegio Minimo</h5>
+                            <p>
+                                Esegui i container con il minor numero di privilegi possibile. 
+                                Evita di eseguire container come root quando non necessario.
+                            </p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="icon-wrapper">
+                                <i class="bi bi-patch-check"></i>
+                            </div>
+                            <h5>Immagini Verificate</h5>
+                            <p>
+                                Utilizza solo immagini da fonti attendibili e verificate. 
+                                Le immagini ufficiali su Docker Hub sono generalmente più sicure.
+                            </p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="icon-wrapper">
+                                <i class="bi bi-lock-fill"></i>
+                            </div>
+                            <h5>Segreti e Configurazioni</h5>
+                            <p>
+                                Non includere mai segreti (password, API keys) direttamente nelle immagini. 
+                                Utilizza invece i Docker Secrets o variabili d'ambiente.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h4>Ottimizzazione delle Immagini</h4>
+                        <div class="feature-card">
+                            <div class="icon-wrapper">
+                                <i class="bi bi-speedometer2"></i>
+                            </div>
+                            <h5>Immagini Minimali</h5>
+                            <p>
+                                Utilizza immagini base minimali (Alpine Linux, distroless) 
+                                per ridurre la superficie di attacco e le dimensioni.
+                            </p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="icon-wrapper">
+                                <i class="bi bi-layers"></i>
+                            </div>
+                            <h5>Ottimizzazione dei Layer</h5>
+                            <p>
+                                Combina comandi RUN per ridurre il numero di layer e 
+                ordina le istruzioni dal meno al più frequente cambiamento.
+                            </p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="icon-wrapper">
+                                <i class="bi bi-check-square"></i>
+                            </div>
+                            <h5>Multi-Stage Build</h5>
+                            <p>
+                                Utilizza multi-stage build per separare l'ambiente di build 
+                                da quello di runtime, mantenendo le immagini finali leggere.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-lg-12">
+                        <h4>Monitoraggio e Logging</h4>
+                        <div class="row">
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                                <div class="text-center">
+                                    <i class="bi bi-graph-up" style="font-size: 2rem; color: #0d6efd;"></i>
+                                    <h5>Metriche delle Prestazioni</h5>
+                                    <p>Monitora CPU, memoria, I/O e rete dei container</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                                <div class="text-center">
+                                    <i class="bi bi-journal-text" style="font-size: 2rem; color: #0d6efd;"></i>
+                                    <h5>Centralizzazione Log</h5>
+                                    <p>Invia i log a sistemi centralizzati (ELK, Splunk)</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                                <div class="text-center">
+                                    <i class="bi bi-heart-pulse" style="font-size: 2rem; color: #0d6efd;"></i>
+                                    <h5>Health Check</h5>
+                                    <p>Implementa health check per monitorare lo stato delle applicazioni</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>&copy; 2025</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </section><!-- /Contact Section -->
+    </footer>
 
-  </main>
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-  <footer id="footer" class="footer position-relative dark-background">
+    <!-- Preloader -->
+    <div id="preloader"></div>
 
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Clarity</span>
-          </a>
-          <div class="footer-contact pt-3">
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
-          </div>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
 
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Hic solutasetp</h4>
-          <ul>
-            <li><a href="#">Molestiae accusamus iure</a></li>
-            <li><a href="#">Excepturi dignissimos</a></li>
-            <li><a href="#">Suscipit distinctio</a></li>
-            <li><a href="#">Dilecta</a></li>
-            <li><a href="#">Sit quas consectetur</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-2 col-md-3 footer-links">
-          <h4>Nobis illum</h4>
-          <ul>
-            <li><a href="#">Ipsam</a></li>
-            <li><a href="#">Laudantium dolorum</a></li>
-            <li><a href="#">Dinera</a></li>
-            <li><a href="#">Trodelas</a></li>
-            <li><a href="#">Flexo</a></li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Clarity</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
 
 </body>
 
