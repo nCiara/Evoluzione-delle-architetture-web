@@ -5,23 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Mainframe e Modello Client-Server</title>
   <style>
-    /* Stili semplici per una pagina leggibile e pulita */
     :root{--bg:#0f1724;--card:#0b1220;--accent:#7dd3fc;--text:#e6eef8}
     body{font-family:Inter, system-ui, -apple-system, Helvetica, Arial; background:linear-gradient(180deg,#071025 0%, #07162a 100%); color:var(--text); margin:0; padding:32px}
     .container{max-width:1000px;margin:0 auto}
     header{display:flex;align-items:center;gap:16px;margin-bottom:24px}
     header h1{font-size:24px;margin:0}
-    .controls{margin-left:auto}
     .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.03);padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);margin-bottom:18px}
     h2{color:var(--accent);margin-top:0}
     .meta{font-size:13px;opacity:0.8;margin-bottom:12px}
-    /* layout a due colonne su schermi larghi */
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
     @media(max-width:900px){.grid{grid-template-columns:1fr}}
-    /* piccoli dettagli */
-    .toggle{background:transparent;border:1px solid rgba(125,211,252,0.15);padding:8px 12px;border-radius:8px;color:var(--accent);cursor:pointer}
-    .search{width:260px;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)}
-    /* testi lunghi più leggibili */
     .content p{line-height:1.55;margin:0 0 12px 0;white-space:pre-wrap}
     .small{font-size:13px;opacity:0.85}
   </style>
@@ -33,16 +26,10 @@
         <h1>Mainframe e Modello Client/Server</h1>
         <div class="small">Sezioni separate per il mainframe e per il modello client/server</div>
       </div>
-      <div class="controls">
-        <!-- Pulsante per evidenziare una sezione -->
-        <button class="toggle" id="focusMain">Evidenzia Mainframe</button>
-        <button class="toggle" id="focusClient">Evidenzia Client/Server</button>
-      </div>
     </header>
 
     <main>
       <div class="grid">
-        <!-- Sezione Mainframe -->
         <section id="mainframe" class="card">
           <h2>Mainframe</h2>
           <div class="meta">Storia, descrizione, protocolli, linguaggi e webserver</div>
@@ -71,11 +58,9 @@ Il termine mainframe si riferiva inizialmente al grande contenitore o struttura 
 
             <h3 class="small">WEBSERVER</h3>
             <p>Un web server mainframe è un mainframe, ovvero un computer centrale caratterizzato da alte prestazioni, affidabilità e sicurezza, che esegue software specifici (come un web server) per gestire le richieste HTTP e fornire contenuti web agli utenti. Questo tipo di sistema svolge spesso un ruolo centralizzato nell’elaborazione di grandi volumi di dati e transazioni, garantendo continuità e stabilità operativa.</p>
-
           </div>
         </section>
 
-        <!-- Sezione Client/Server -->
         <section id="clientserver" class="card">
           <h2>Modello Client / Server</h2>
           <div class="meta">Descrizione, protocolli, linguaggi, layer e evoluzione</div>
@@ -116,31 +101,10 @@ Dati (Database): dove si memorizzano i dati.</p>
 
             <h3 class="small">Tipi di architettura ed evoluzione</h3>
             <p>Esistono architetture 2-tier, 3-tier e N-tier. Con il web e il cloud si sono evolute verso microservizi, serverless ed edge computing, mantenendo però il paradigma client-server alla base.</p>
-
           </div>
         </section>
       </div>
-
     </main>
   </div>
-
-  <script>
-    // Script molto semplice per evidenziare temporaneamente una sezione
-    const mainBtn = document.getElementById('focusMain');
-    const clientBtn = document.getElementById('focusClient');
-    const main = document.getElementById('mainframe');
-    const client = document.getElementById('clientserver');
-
-    function flash(el){
-      const original = el.style.boxShadow;
-      el.style.boxShadow = '0 0 0 4px rgba(125,211,252,0.12), 0 8px 30px rgba(3,7,18,0.6)';
-      setTimeout(()=> el.style.boxShadow = original, 1400);
-    }
-
-    mainBtn.addEventListener('click', ()=> flash(main));
-    clientBtn.addEventListener('click', ()=> flash(client));
-
-    // Commento: non ci sono dipendenze esterne, pagina standalone.
-  </script>
 </body>
 </html>
